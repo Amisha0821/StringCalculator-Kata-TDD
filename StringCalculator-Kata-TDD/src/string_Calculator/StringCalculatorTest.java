@@ -24,5 +24,12 @@ public class StringCalculatorTest {
 	public void StringReturnSumOfNumber() {
 		assertEquals(3,StringCalculator.add("1,2"));
 	}
+	
+	//Allow the add method to handle an unknown amount of numbers
+	@Test
+	public void stringReturnMultipleNumbers() {
+		assertEquals(6,StringCalculator.add("1,2,3"));
+	}
+	
 
 }

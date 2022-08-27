@@ -17,6 +17,15 @@ int add(String numbers)
 	3. Remember to solve things as simply as possible so that you force yourself to write tests you did 
 		not think about
 	4. Remember to refactor after each passing test.
+	
+2. Allow the add method to handle an unknown amount of numbers
+3. Calling add with a negative number will throw an exception “Negatives not allowed” - and the negative 
+	that was passed.
+4. If there are multiple negatives, show all of them in the exception message
+5. Numbers bigger than 1000 should be ignored.
+	For example:
+	Input: "2,1001"
+	Output: 2
 */
 
 package string_Calculator;
@@ -25,11 +34,20 @@ public class StringCalculator {
 	
 	public static int add(String Numbers)
 	{
+		int sumVal=0;
 		if (Numbers.isEmpty())
 			return 0;
 		else if (Numbers.contains(",")) {
 			String[] number = Numbers.split(",");
-			return Integer.parseInt(number[0]) + Integer.parseInt(number[1]);
+			
+			for (String num : number)
+			{
+				if (!num.trim().isEmpty())
+				{
+					sumVal += Integer.parseInt(num);
+				}
+			}
+			return sumVal;
 		}
 		else
 			return Integer.parseInt(Numbers);	
