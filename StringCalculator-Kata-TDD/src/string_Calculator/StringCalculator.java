@@ -27,7 +27,11 @@ public class StringCalculator {
 	{
 		if (Numbers.isEmpty())
 			return 0;
+		else if (Numbers.contains(",")) {
+			String[] number = Numbers.split(",");
+			return Integer.parseInt(number[0]) + Integer.parseInt(number[1]);
+		}
 		else
-			return Integer.parseInt(Numbers);
+			return Integer.parseInt(Numbers);	
 	}
 }
